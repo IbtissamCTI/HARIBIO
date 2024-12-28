@@ -65,7 +65,7 @@ Le projet a été organisé et suivi grâce à :
 
 ## Résultat Final
 
-- **Lien du site** : [Accéder au site HARIBIO](#)  
+- **Lien du site** : [Accéder au site HARIBIO](haribio.vercel.app)  
 
 ---
 
