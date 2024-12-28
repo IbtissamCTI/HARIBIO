@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="epinard.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAHI-EPINARD</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container" style="font-family: 'Audiowide', sans-serif;">
+            <nav class="navbar navbar-expand-lg bg-transparent">
+                <div class="container-fluid">
+                  <a class="navbar-brand text-white" href="index.html">HARIBIO</a>
+                  <div class="collapse navbar-collapse justify-content-end pe-5" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link  text-white mx-5" aria-current="page" href="index.html">Acceuil</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link  text-white mx-5" href="filierelegume.html">Legumes</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white mx-5" href="arbroculture.html">Arbroculture</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white mx-5" href="horticulture.html">Horticulture</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+        </div>
+<div class="row">
+    <h1 class="display-">FAMILLES DES LEGUMES</h1>
+</div>
+<div class="row gap-1">
+    <div class="col col-deroul">
+        <div class="deroul">
+            <a href="courgette.html"><img src="IMAGE/fleche_h.png" alt=""></a>
+            <a href="courgette.html"><img  src="IMAGE/logo_comcombre.png" alt=""></a>
+            <a href="epinard.html"><img style="width: 90px;" src="IMAGE/logo_epinard.png" alt=""></a>
+            <a href="tomate.html"><img src="IMAGE/logo_tomate.png" alt=""></a>
+            <a href="betterave.html"><img src="IMAGE/logo_betterave.png" alt=""></a>
+            <a href="tomate.html"><img src="IMAGE/fleche_b.png" alt=""></a>
+        </div>
+    </div>
+    <div class="col-6">
+        <h2 class="display-4 d-flex justify-content-center">Epinard</h2>
+        <img class="mb-2" style="width: 638px;" src="IMAGE/Line 20.png" alt="">
+        <div>
+            <p>
+                L'épinard, plante herbacée, se cultive principalement en automne et au printemps, car il préfère les températures fraîches (10-20 °C). Semé en plein soleil ou mi-ombre, il s'adapte aux sols riches et bien drainés. Récolte possible 6-8 semaines après semis.
+                <br><br> Le biocontrôle est une solution naturelle pour préserver les cultures des nuisibles et maladies tout en réduisant l’impact sur l’environnement. Pour l’épinard, il lutte contre les ravageurs et maladies via des mécanismes naturels (prédateurs, parasites, champignons). Le choix de méthode dépend du niveau de satisfaction : efficacité, coût et impact écologique. Ex. : utiliser des nématodes pour lutter contre les ravageurs du sol ou des solutions bio pour protéger les feuilles.
+            </p>
+        </div>
+        <a id="ENSA" class="mt-2 d-flex justify-content-center" href="#myChart">En savoir +</a>
+    </div>
+    <div class="col-5 col-betterave">
+        <img id="bette" src="IMAGE/Epinard.png" alt="">
+    </div>
+
+</div>
+    
+        <h1 class="d-flex justify-content-center" style="font-size: 230px;" >Graphique</h1>
+        <canvas id="myChart" width="400" height="200"></canvas>
+        <script>
+            // Fonction pour charger le fichier CSV
+            async function loadCSV(url) {
+                const response = await fetch(url);
+                const data = await response.text();
+                return data;
+            }
+        
+            // Fonction pour convertir les niveaux de satisfaction en valeurs numériques
+            function mapSatisfaction(value) {
+                switch (value.trim()) {
+                    case "Bon":
+                        return 5;
+                    case "Mitigé":
+                        return 2;
+                    case "Aucun avis émis":
+                        return 1;
+                    case "Insatisfaisant":
+                        return 0.5;
+                }
+            }
+        
+            // Fonction pour créer le graphique
+            async function createChart() {
+                const csvData = await loadCSV('epinard.csv');
+                const lines = csvData.split('\n');
+        
+                // Extraire les labels et les valeurs
+                const labels = [];
+                const values = [];
+        
+                for (let i = 1; i < lines.length; i++) { // Commencer à 1 pour ignorer l'en-tête
+                    const [method, satisfaction] = lines[i].split(',');
+                    if (method && satisfaction) { // Vérifier que les valeurs existent
+                        labels.push(method.trim());
+                        values.push(mapSatisfaction(satisfaction)); // Convertir satisfaction en valeur numérique
+                    }
+                }
+        
+                const ctx = document.getElementById('myChart').getContext('2d');
+                const myChart = new Chart(ctx, {
+                    type: 'bar', // ou 'line', 'pie', etc.
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Niveau de satisfaction',
+                            data: values,
+                            backgroundColor: 'white',
+                            borderColor: 'white',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: 'white' // Couleur des labels de la légende
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    stepSize: 1, // Pas entre les valeurs de l'axe Y
+                                    color: 'white' // Couleur des ticks de l'axe Y
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Niveau de satisfaction',
+                                    color: 'white' // Couleur du titre de l'axe Y
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: 'white' // Couleur des ticks de l'axe X
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Méthodes',
+                                    color: 'white' // Couleur du titre de l'axe X
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        
+            // Appeler la fonction pour créer le graphique
+            createChart();
+        </script>
+</div>
+    <div class="marquee-container">
+        <div class="marquee">
+            <h1  style="font-size: 230px;" >Epinard Epinard Epinard Epinard Epinard </h1>
+        </div>
+      
+    
+</div>
+<div class="container-fluid">
+    <h2 class="d-flex justify-content-center" >Analyse graphique</h2>
+    <img class="d-flex justify-content-center" style=" width: 330px; height: auto; position: absolute; left: 570px;" src="IMAGE/Line 20.png" alt="">
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-5 mt-5">
+            <p>
+                Le graphique montre les niveaux de satisfaction (de 1 à 5) associés à trois méthodes de biocontrôle utilisées pour les épinards. Bacillus subtilis se distingue avec un score de satisfaction maximal de 5, soulignant son efficacité remarquable. Ce micro-organisme, reconnu pour son action bénéfique sur la santé des plantes, agit en inhibant les pathogènes du sol et en stimulant la croissance des épinards. Son usage est perçu comme fiable et adapté, ce qui explique son large succès parmi les agriculteurs. En plus de ses effets directs contre les maladies, il favorise un microbiome sain, contribuant ainsi à des récoltes plus abondantes et de meilleure qualité.
+                <br> <br>
+                Coniothyrium minitans, en revanche, obtient une note intermédiaire de 3. Ce champignon antagoniste est surtout utilisé pour cibler les maladies causées par des agents pathogènes fongiques, comme Sclerotinia. Bien que son efficacité soit reconnue dans certains cas, elle semble être perçue comme variable dans le cadre de la culture des épinards. Cela pourrait s'expliquer par des conditions environnementales spécifiques ou des besoins d'application très précis. Ce score reflète à la fois son potentiel et les limites de son adoption généralisée pour cette culture.
+            </p>
+            <img class="mt-5" style="width: 520px;" src="IMAGE/Line 20.png" alt="">
+        </div>
+        <div class="col-5">
+            <img style=" width: 600px; height: auto;" src="IMAGE/rb_22121 4.png" alt="virus">
+        </div>
+        <div class="col verti" style="position: relative; top:100px;"> <h2>DRANIPE DRANIPE </h2></div>
+
+    </div>
+    <div class="row">
+        <div class="col verti" style="position: relative; top:100px;"> <h2>EPINARD EPINARD</h2></div>
+        <div class="col-5">
+            <img style=" width: 600px; height: auto;" src="IMAGE/rb_22121 4.png" alt="virus">
+        </div>
+        <div class="col-5">
+            <p>
+                Le phosphate ferrique, avec un niveau de satisfaction faible de 1, est nettement moins apprécié par les utilisateurs. Souvent utilisé pour contrôler les limaces, il semble mal répondre aux attentes pour les problématiques spécifiques rencontrées dans la culture des épinards. Les agriculteurs pourraient juger son efficacité insuffisante ou son coût trop élevé par rapport aux résultats obtenus. Ce faible score témoigne d’un désintérêt marqué pour cette méthode dans le contexte des épinards, où d'autres solutions plus efficaces sont privilégiées.
+                <br> <br>
+                Ces résultats mettent en lumière les différences significatives dans l’efficacité perçue des méthodes de biocontrôle. Si Bacillus subtilis ressort comme un outil incontournable grâce à sa performance et son adaptabilité, le cas de Coniothyrium minitans illustre la nécessité d’une optimisation pour des contextes spécifiques. À l’opposé, la faible performance du phosphate ferrique souligne l’importance d’investir dans des solutions mieux adaptées aux défis de la culture des épinards. L’évaluation minutieuse des options disponibles reste cruciale pour maximiser les bénéfices des pratiques de biocontrôle tout en favorisant une agriculture plus durable.
+             </p>
+               <img class="mt-5" style="width: 620px;" src="IMAGE/Line 20.png" alt="">
+        </div>
+        <div class="col"></div>
+        
+
+    </div>
+    
+</div>
+<footer class="text-white py-4 border-top border-white">
+    <div class="container">
+        <div class="row">
+         
+            <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                    <li><a href="index.html" class="text-white text-decoration-none">Acceuil</a></li>
+                    <li><a href="filierelegume.html" class="text-white text-decoration-none">Legume</a></li>
+                    <li><a href="arbroculture.html" class="text-white text-decoration-none">Arboriculture</a></li>
+                    <li><a href="horticulture.html" class="text-white text-decoration-none">Horticulture</a></li>
+                </ul>
+            </div>
+            
+           
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="mb-2">Assia Mahdjoub</p>
+                        <p class="mb-2">Hugo Vitor Goncalves Fernandes</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="mb-2">Ibtissam Chtioui</p>
+                        <p class="mb-2">Ruben Pereira</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

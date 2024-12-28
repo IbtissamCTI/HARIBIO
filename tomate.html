@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="tomate.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARIBIO-TOMATE</title>
+</head>
+<body>
+    <div class="container">
+        
+   
+        <div class="container" style="font-family: 'Audiowide', sans-serif;">
+            <nav class="navbar navbar-expand-lg bg-transparent">
+                <div class="container-fluid">
+                  <a class="navbar-brand text-white" href="index.html">HARIBIO</a>
+                  <div class="collapse navbar-collapse justify-content-end pe-5" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link text-white mx-5" aria-current="page" href="index.html">Acceuil</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white mx-5" href="filierelegume.html">Legumes</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white mx-5" href="arbroculture.html">Arbroculture</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white mx-5" href="horticulture.html">Horticulture</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+        </div>
+<div class="row">
+    <h1 class="display-">FAMILLES DES LEGUMES</h1>
+</div>
+<div class="row gap-1">
+    <div class="col col-deroul">
+        <div class="deroul">
+            <a href="epinard.html"><img src="IMAGE/fleche_h.png" alt=""></a>
+            <a href="courgette.html"><img  src="IMAGE/logo_comcombre.png" alt=""></a>
+            <a href="epinard.html"><img  src="IMAGE/logo_epinard.png" alt=""></a>
+            <a href="tomate.html"><img style="width: 90px;" src="IMAGE/logo_tomate.png" alt=""></a>
+            <a href="betterave.html"><img src="IMAGE/logo_betterave.png" alt=""></a>
+            <a href="betterave.html"><img src="IMAGE/fleche_b.png" alt=""></a>
+        </div>
+    </div>
+    <div class="col-6">
+        <h2 class="display-4 d-flex justify-content-center">Tomate</h2>
+        <img class="mb-2" style="width: 638px;" src="IMAGE/Line 20.png" alt="">
+        <div>
+            <p>
+                La tomate, plante estivale, se cultive au printemps sous abri ou en extérieur après les gelées. Elle aime les sols riches, bien drainés, et un ensoleillement maximal. Récolte 4-5 mois après semis selon la variété et les conditions climatiques.
+               <br><br> Le biocontrôle, méthode respectueuse de l’écosystème, aide à protéger la tomate des ravageurs (pucerons, aleurodes) et maladies (mildiou). Solutions : prédateurs (coccinelles), champignons antagonistes ou extraits végétaux. Le choix dépend du niveau de satisfaction : efficacité, coût, impact. Ex. : la lutte biologique avec Trichoderma contre les maladies racinaires ou des huiles essentielles pour repousser les insectes.
+            </p>
+        </div>
+        <a id="ENSA" class="mt-2 d-flex justify-content-center" href="#myChart">En savoir +</a>
+    </div>
+    <div class="col-5 col-betterave">
+        <img id="bette" src="IMAGE/Tomate.png" alt="">
+    </div>
+
+</div>
+    
+<h1 class="d-flex justify-content-center" style="font-size: 230px;" >Graphique</h1>
+<canvas id="myChart" width="400" height="200"></canvas>
+<script>
+    // Fonction pour charger le fichier CSV
+    async function loadCSV(url) {
+        const response = await fetch(url);
+        const data = await response.text();
+        return data;
+    }
+
+    // Fonction pour convertir les niveaux de satisfaction en valeurs numériques
+    function mapSatisfaction(value) {
+        switch (value.trim()) {
+            case "Bon":
+                return 5;
+            case "Mitigé":
+                return 2;
+            case "Aucun avis émis":
+                return 0;
+            case "Insatisfaisant":
+                return - 1;
+        }
+    }
+
+    // Fonction pour créer le graphique
+    async function createChart() {
+        const csvData = await loadCSV('tomate.csv');
+        const lines = csvData.split('\n');
+
+        // Extraire les labels et les valeurs
+        const labels = [];
+        const values = [];
+
+        for (let i = 1; i < lines.length; i++) { // Commencer à 1 pour ignorer l'en-tête
+            const [method, satisfaction] = lines[i].split(',');
+            if (method && satisfaction) { // Vérifier que les valeurs existent
+                labels.push(method.trim());
+                values.push(mapSatisfaction(satisfaction)); // Convertir satisfaction en valeur numérique
+            }
+        }
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar', // ou 'line', 'pie', etc.
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Niveau de satisfaction',
+                    data: values,
+                    backgroundColor: 'white',
+                    borderColor: 'white',
+                    borderWidth: 1
+                    
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1 // Pas entre les valeurs de l'axe Y
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Appeler la fonction pour créer le graphique
+    createChart();
+</script>
+</div>
+    <div class="marquee-container">
+        <div class="marquee">
+            <h1  style="font-size: 230px;" >Tomate Tomate Tomate Tomate Tomate  </h1>
+        </div>
+      
+    
+</div>
+<div class="container-fluid">
+    <h2 class="d-flex justify-content-center" >Analyse graphique</h2>
+    <img class="d-flex justify-content-center" style=" width: 330px; height: auto; position: absolute; left: 570px;" src="IMAGE/Line 20.png" alt="">
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-5 mt-5">
+            <p>Le graphique illustre les niveaux de satisfaction des différentes méthodes de biocontrôle appliquées à la culture de la tomate, mesurés sur une échelle de 1 à 5. Parmi les solutions représentées, certaines, comme le Bacillus thuringiensis et la phéromone lépidoptères, obtiennent une satisfaction maximale (5), témoignant de leur efficacité reconnue dans la lutte contre les nuisibles. D'autres approches comme le Macrolophus pygmaeus et le soufre partagent également ce score élevé, renforçant leur réputation en matière de contrôle des ravageurs ou des maladies spécifiques aux tomates. Ces résultats montrent que plusieurs techniques offrent des performances optimales tout en étant probablement bien adaptées aux exigences environnementales et économiques des exploitations agricoles.
+<br>
+<br>
+                Cependant, certaines méthodes, comme l’Encarsia formosa, obtiennent des scores beaucoup plus faibles, autour de 2. Cela peut refléter des limites dans leur application ou leur efficacité perçue, ou encore un usage spécifique mal adapté aux conditions locales de culture. Ces variations dans les scores mettent en lumière la diversité des solutions disponibles, mais également les défis que représentent leur mise en œuvre et leur acceptation par les producteurs.
+            </p>
+            <img class="mt-5" style="width: 520px;" src="IMAGE/Line 20.png" alt="">
+        </div>
+        <div class="col-5">
+            <img style=" width: 600px; height: auto;" src="IMAGE/rb_22121 4.png" alt="virus">
+        </div>
+        <div class="col verti" style="position: relative; top:100px;"> <h2>ETAMOT ETAMOT</h2></div>
+
+    </div>
+    <div class="row">
+        <div class="col verti" style="position: relative; top:100px;"> <h2>TOMATE TOMATE</h2></div>
+        <div class="col-5">
+            <img style=" width: 600px; height: auto;" src="IMAGE/rb_22121 4.png" alt="virus">
+        </div>
+        <div class="col-5">
+            <p>
+                Les solutions innovantes comme le mélange fleuri et ligne de maïs ou encore la phéromone diptera se distinguent par des scores élevés, proches ou égaux à 5, montrant un engouement pour ces techniques intégrées qui allient respect de l’écosystème et contrôle efficace des nuisibles. De même, les produits comme le spinosad appât et le Bacillus amyloliquefaciens sont largement plébiscités, indiquant qu’ils répondent bien aux attentes des agriculteurs. Ces résultats témoignent de l’importance d’intégrer des solutions naturelles pour répondre aux enjeux environnementaux et aux réglementations croissantes en matière de durabilité agricole.
+<br>
+<br>
+                En revanche, les solutions comme l’hydrogénocarbonate de potassium et l'Eretmocerus erimicus affichent des scores plus modérés, ce qui pourrait pointer un besoin d’amélioration dans leur formulation, leur accessibilité ou leur mode d’emploi. Globalement, ce graphique souligne l’importance d’une évaluation régulière des méthodes de biocontrôle, afin d’identifier les techniques les plus performantes et de proposer des ajustements aux solutions moins efficaces. Cela permettrait de renforcer leur adoption dans la culture de la tomate tout en maximisant leurs bénéfices pour les producteurs et l’environnement.
+            </p>
+               <img class="mt-5" style="width: 620px;" src="IMAGE/Line 20.png" alt="">
+        </div>
+        <div class="col"></div>
+        
+
+    </div>
+    <footer class=" text-white py-4 border-top border-white">
+        <div class="container">
+            <div class="row">
+             
+                <div class="col-md-6">
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="index.html" class="text-white text-decoration-none">Acceuil</a></li>
+                        <li><a href="betterave.html" class="text-white text-decoration-none">Legume</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Arbroculture</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Horticulture</a></li>
+                    </ul>
+                </div>
+                
+               
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="mb-2">Assia Mahdjoub</p>
+                            <p class="mb-2">Hugo Vitor Goncalves Fernandes</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="mb-2">Ibtissam Chtioui</p>
+                            <p class="mb-2">Ruben Pereira</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

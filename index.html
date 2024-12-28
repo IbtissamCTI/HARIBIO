@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Haribio</title>
+    <style>
+        .custom-bg {
+            background-color: #1a1b1b; /* Couleur cartes */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&amp;display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="index.css">
+  </head>
+
+  <body class="bg-black text-white min-vh-100">
+    <div class="container" style="font-family: 'Audiowide', sans-serif;">
+        <nav class="navbar navbar-expand-lg bg-transparent">
+            <div class="container-fluid">
+              <a class="navbar-brand text-white" href="index.html">HARIBIO</a>
+              <div class="collapse navbar-collapse justify-content-end pe-5" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active text-white mx-5" aria-current="page" href="index.html">Acceuil</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white mx-5" href="filierelegume.html">Legumes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white mx-5" href="arbroculture.html">Arboriculture</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white mx-5" href="horticulture.html">Horticulture</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </div>
+    <div class="m-0 mb-0">
+        <img src="IMAGE/plante.png" alt="Image plante" class="w-100" style="height: 550px; object-fit: cover;">
+    </div>
+    <div class="container-fluid px-0 mt-0">
+        <h1 class="display-1 fw-normal text-uppercase m-0" style="font-family: 'Audiowide', sans-serif; font-size: 310px; position: relative; top: -75px;">HIRABIO</h1>
+    </div>
+    <div class="container-fluid px-0 mt-0">
+        <h1 class="display-1 fw-normal text-uppercase m-0" style="font-family: 'Audiowide', sans-serif; font-size: 68px; position: relative; top: -150px;">LE BIOCONTROLE, ENTRE NOS MAINS</h1>
+    </div>
+    <div class="container py-3">
+        <div class="row g-5 mb-5">
+            <!-- Colonne 1 -->
+            <div class="col-md-4">
+               <a href="filierelegume.html"> <div class="d-flex flex-column align-items-center justify-content-center custom-bg text-white position-relative" style="height: 600px; font-family: 'Audiowide', sans-serif; font-size: 125px;">
+                    <div class="position-absolute bottom-0 start-0 p-3" style="text-align: left; line-height: 0.8;"> 
+                        <span class="d-block">LEG</span>
+                        <span class="d-block">UME</span>
+                    </div>
+                </div>
+            </a>
+                <div class="position-relative mt-3">
+                    <div class="w-100 bg-white" style="height: 4px;"></div>
+                </div>
+            </div>
+            <!-- Colonne 2 -->
+            <div class="col-md-4">
+               <a href="arbroculture.html"> <div class="d-flex flex-column align-items-center justify-content-center custom-bg text-white position-relative" style="height: 600px; font-family: 'Audiowide', sans-serif; font-size: 150px;">
+                    <div class="position-absolute bottom-0 start-0 p-3" style="text-align: left; line-height: 0.8;"> 
+                        <span class="d-block">ARB</span>
+                        <span class="d-block">ROC</span>
+                        <span class="d-block">ULT</span>
+                        <span class="d-block">URE</span>
+                    </div>
+                </div>
+            </a>
+                <div class="position-relative mt-3">
+                    <div class="w-100 bg-white" style="height: 4px;"></div>
+                </div>
+            </div>
+            <!-- Colonne 3 -->
+            <div class="col-md-4">
+                <a href="horticulture.html"><div class="d-flex flex-column align-items-center justify-content-center custom-bg text-white position-relative" style="height: 600px; font-family: 'Audiowide', sans-serif; font-size: 150px;">
+                    <div class="position-absolute bottom-0 start-0 p-3" style="text-align: left; line-height: 0.8;">
+                        <span class="d-block">HOR</span>
+                        <span class="d-block">TIC</span>
+                        <span class="d-block">ULT</span>
+                        <span class="d-block">URE</span>
+                    </div>
+                </div>
+            </a>
+                <div class="position-relative mt-3">
+                    <div class="w-100 bg-white" style="height: 4px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   <!-- About Us Section -->
+   <div class="container-fluid px-3 mt-3 d-flex flex-column justify-content-center align-items-center" style="height: 30vh;">
+    <h1 class="display-1 fw-normal text-uppercase my-3 " style="font-family: 'Audiowide', sans-serif; font-size: 60px; position: relative; top: 70px;"> C'EST QUOI LE BIOCONTROLE ?</h1> <!-- Titre About Us -->
+    <hr class="mb-2" style="width: 70%; border: 0; border-top: 3px solid white; margin-top: 50px; margin-bottom:-60px;"> <!-- Ligne sous About Us avec une marge au-dessus -->
+    <p class="text-justify mb-5" style="font-family: 'Poppins', sans-serif; font-size: 20px; color: white; margin-top: 80px; max-width: 80%; text-align: justify;">
+        Le biocontrôle englobe des méthodes alternatives pour protéger les cultures en s’appuyant sur des processus naturels. 
+        Il repose sur l’utilisation d’organismes vivants, comme des prédateurs ou des microorganismes, ou de substances naturelles pour lutter contre les ravageurs et maladies des plantes. 
+        <br>Ces solutions respectueuses de l’environnement contribuent à réduire l’usage des produits phytosanitaires chimiques, tout en favorisant la biodiversité et en préservant les écosystèmes. 
+        Le biocontrôle s’inscrit pleinement dans une démarche d’agriculture durable, en conciliant productivité et protection de la nature.
+</p>
+</div>
+<!-- Section Compteurs avec bannière -->
+<div class="container-fluid my-5 p-0">
+    <div class="position-relative">
+        <!-- Image  -->
+        <img src="IMAGE/water.jpg" class="my-5 w-100" alt="Background banner" style="height: 200px; object-fit: cover;">
+        
+    </div>
+</div>
+
+<script>
+document.querySelectorAll('.counter-value').forEach(counter => {
+    counter.addEventListener('mouseenter', () => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        let count = 0;
+        const duration = 1000; // 1 seconde pour l'animation
+        const increment = target / (duration / 16); // 60 FPS
+
+        function updateCount() {
+            if (count < target) {
+                count += increment;
+                counter.textContent = Math.min(Math.round(count), target);
+                requestAnimationFrame(updateCount);
+            }
+        }
+
+        counter.textContent = '0';
+        updateCount();
+    });
+
+    counter.addEventListener('mouseleave', () => {
+        counter.textContent = '0';
+    });
+});
+</script>
+
+<!-- premier biocontrole -->
+<div class="container">
+    <div class="row"><h1 class="mb-5" style="font-family: 'Audiowide', sans-serif;"> SUBSTANCE NATURELLE</h1></div>
+    <div class="row">
+        <div class="col-5" >
+            <H3 class="mb-3" style="font-family: 'Audiowide', sans-serif; text-decoration:underline; ">
+                C'EST QUOI ? :
+            </H3>
+            <p class="text-justify mb-5" style="font-family: 'Poppins', sans-serif; font-size: 20px; color: white; text-align: justify;">
+                Les substances naturelles issues de plantes, de minéraux ou d’autres organismes vivants sont également utilisées en biocontrôle pour protéger les cultures. Par exemple, des extraits végétaux comme l’huile de neem agissent comme insecticides naturels, tandis que les phéromones sexuelles permettent de piéger certains insectes nuisibles. Les algues marines, quant à elles, sont utilisées pour stimuler les défenses immunitaires des plantes et améliorer leur résistance aux maladies. Ces substances, biodégradables et non toxiques pour l’environnement, offrent des solutions efficaces et durables pour une agriculture responsable.
+                 <H3 class="mb-3" style="font-family: 'Audiowide', sans-serif; text-decoration:underline; ">
+                    EXPLICATION GRAPHIQUE :
+                </H3>
+                <p class="text-justify mb-5" style="font-family: 'Poppins', sans-serif; font-size: 20px; color: white; text-align: justify;">
+                    Le graphique montre les taux d'utilisation des méthodes de biocontrôle basées sur des substances naturelles. Les fongicides et herbicides dominent largement, tandis que les insecticides occupent une place moindre. Les molluscicides, acaricides, et nématicides représentent des parts marginales, soulignant leur usage limité dans ce domaine.
+                 </p>
+
+        </div>
+        <div class="col"></div>
+        <div class="col-6 d-flex justify-content-center ">
+            <canvas id="myPieChart" width="400" height="400"></canvas>
+    <script>
+        // Fonction pour charger le fichier CSV
+        async function loadCSV(url) {
+            const response = await fetch(url);
+            const data = await response.text();
+            return data;
+        }
+
+        // Fonction pour créer le graphique
+        async function createPieChart() {
+            const csvData = await loadCSV('subtance.csv');
+            const lines = csvData.split('\n');
+
+            // Extraire les labels et les valeurs
+            const labels = [];
+            const values = [];
+
+            for (let i = 1; i < lines.length; i++) { // Commencer à 1 pour ignorer l'en-tête
+                const [type, pourcentage] = lines[i].split(',');
+                if (type && pourcentage) { // Vérifier que les valeurs existent
+                    labels.push(type.trim());
+                    values.push(parseInt(pourcentage.trim())); // Convertir en nombre
+                }
+            }
+
+            const ctx = document.getElementById('myPieChart').getContext('2d');
+            const myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Pourcentage des Traitements de Biocontrôle',
+                        data: values,
+                        backgroundColor: [
+                            'rgba(19, 70, 17, 1)', // Gris
+                            'rgba(62, 137, 20, 1)',     // Rouge
+                            'rgba(61, 163, 93, 1)', // Blanc
+                            'rgba(144, 238, 144, 0.6)', // Vert pâle
+                            'rgba(150, 224, 114, 1)',   // Orange
+                            'rgba(8, 28, 21, 1)'      // Bleu
+                        ],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return `${tooltipItem.label}: ${tooltipItem.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Appeler la fonction pour créer le graphique
+        createPieChart();
+    </script>
+        </div>
+    </div>
+    <!-- FIN premier biocontrole -->
+</div>
+   <!-- Section Compteurs avec bannière -->
+    <div class="container-fluid">
+        <div class="container-fluid my-5 p-0">
+            <div class="position-relative">
+                <!-- Image  -->
+                <img src="IMAGE/ -8.jpg" class="my-5 w-100" alt="Background banner" style="height: 200px; object-fit: cover;">
+                
+                <!-- Contenu des compteurs -->
+                <div class="position-absolute top-50 start-50 translate-middle w-100" style="font-family: 'Audiowide', sans-serif;">
+                    <div class="container">
+                        <div class="row text-center text-white">
+                            <!-- Compteur 1 -->
+                            <div class="col-md-6">
+                                <h2 class="display-4 fw-bold counter-value" data-target="36 %">0%</h2>
+                                <p class="text-uppercase fw-bold" >Fongicide</p>
+                            </div>
+                            <!-- Compteur 2 -->
+                            <div class="col-md-6">
+                                <h2 class="display-4 fw-bold counter-value" data-target="30">0%</h2>
+                                <p class="text-uppercase fw-bold" >Insecticide</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.counter-value').forEach(counter => {
+            counter.addEventListener('mouseenter', () => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                let count = 0;
+                const duration = 1000; // 1 seconde pour l'animation
+                const increment = target / (duration / 16); // 60 FPS
+        
+                function updateCount() {
+                    if (count < target) {
+                        count += increment;
+                        counter.textContent = Math.min(Math.round(count), target);
+                        requestAnimationFrame(updateCount);
+                    }
+                }
+        
+                counter.textContent = '0';
+                updateCount();
+            });
+        
+            counter.addEventListener('mouseleave', () => {
+                counter.textContent = '0';
+            });
+        });
+        </script>
+        
+<!-- FIN Section Compteurs avec bannière -->
+
+
+
+<!-- deuxieme biocontrole -->
+ <div class="container">
+    <div class="row mt-3"><h1 class="mb-5" style="font-family: 'Audiowide', sans-serif;"> MACRO-ORGANISME</h1></div>
+    <div class="row">
+        <div class="col-6 d-flex justify-content-center ">
+            <canvas id="myPieChartt" width="400" height="400"></canvas>
+            <script>
+           
+                async function loadCSV(url) {
+                    const response = await fetch(url);
+                    const data = await response.text();
+                    return data;
+                }
+        
+                async function createPieChartt() {
+                    const csvData = await loadCSV('macro.csv');
+                    const lines = csvData.split('\n');
+        
+                    const labels = [];
+                    const values = [];
+        
+                    for (let i = 1; i < lines.length; i++) { // Commencer à 1 pour ignorer l'en-tête
+                        const [type, pourcentage] = lines[i].split(',');
+                        if (type && pourcentage) { // Vérifier que les valeurs existent
+                            labels.push(type.trim());
+                            values.push(parseInt(pourcentage.trim())); // Convertir en nombre
+                        }
+                    }
+        
+                    const ctx = document.getElementById('myPieChartt').getContext('2d');
+                    const myPieChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Pourcentage des Traitements de Biocontrôle',
+                                data: values,
+                                backgroundColor: [
+                                    'rgba(61, 163, 93, 1)', 
+                                    'rgba(150, 224, 114, 1)',    
+                                   
+                                ],
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(tooltipItem) {
+                                            return `${tooltipItem.label}: ${tooltipItem.raw}%`;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+        
+                // Appeler la fonction pour créer le graphique
+                createPieChartt();
+            </script>
+        </div>
+       
+        <div class="col"></div>
+        <div class="col-5" >
+            <H3 class="mb-3" style="font-family: 'Audiowide', sans-serif; text-decoration:underline; ">
+                C'EST QUOI ? :
+            </H3>
+            <p class="text-justify mb-5" style="font-family: 'Poppins', sans-serif; font-size: 20px; color: white; text-align: justify;">
+                Les macro-organismes regroupent des prédateurs ou parasitoïdes, comme les coccinelles, les chrysopes, ou encore certains nématodes. Ces auxiliaires biologiques sont utilisés pour contrôler les populations de ravageurs, 
+                comme les pucerons ou les acariens, en les chassant ou en se nourrissant de leurs œufs. <br>
+                Par exemple, les coccinelles sont très efficaces contre les colonies de pucerons, tandis que les nématodes parasitent les insectes ravageurs dans le sol. 
+                L’utilisation de macroorganismes en biocontrôle permet de maintenir un équilibre naturel tout en réduisant l’impact environnemental des traitements chimiques.  
+            </p>
+                <H3 class="mb-3" style="font-family: 'Audiowide', sans-serif; text-decoration:underline; ">
+                    EXPLICATION GRAPHIQUE:
+                </H3>
+                <p class="text-justify mb-5" style="font-family: 'Poppins', sans-serif; font-size: 20px; color: white; text-align: justify;">
+                    Le graphique illustre les méthodes de biocontrôle par macro-organismes. Les insecticides dominent largement avec 86 % d’utilisation, tandis que les acaricides représentent une part plus modeste. Cela montre une nette priorité accordée aux insecticides dans ce domaine.
+                </p>
+
+        </div>
+        
+    </div>
+</div>
+    <!--FIN deuxieme biocontrole -->
+      <!-- Section Compteurs avec bannière -->
+      <div class="container-fluid">
+        <div class="container-fluid my-5 p-0">
+            <div class="position-relative">
+                <!-- Image  -->
+                <img src="IMAGE/ -9.jpg" class="my-5 w-100" alt="Background banner" style="height: 200px; object-fit: cover;">
+                
+                <!-- Contenu des compteurs -->
+                <div class="position-absolute top-50 start-50 translate-middle w-100" style="font-family: 'Audiowide', sans-serif;">
+                    <div class="container">
+                        <div class="row text-center text-white">
+                            <!-- Compteur 1 -->
+                            <div class="col-md-6">
+                                <h2 class="display-4 fw-bold counter-value" data-target="86 %">0%</h2>
+                                <p class="text-uppercase fw-bold" >Insecticide</p>
+                            </div>
+                            <!-- Compteur 2 -->
+                            <div class="col-md-6">
+                                <h2 class="display-4 fw-bold counter-value" data-target="13">0%</h2>
+                                <p class="text-uppercase fw-bold" >Acaricides</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.counter-value').forEach(counter => {
+            counter.addEventListener('mouseenter', () => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                let count = 0;
+                const duration = 1000; // 1 seconde pour l'animation
+                const increment = target / (duration / 16); // 60 FPS
+        
+                function updateCount() {
+                    if (count < target) {
+                        count += increment;
+                        counter.textContent = Math.min(Math.round(count), target);
+                        requestAnimationFrame(updateCount);
+                    }
+                }
+        
+                counter.textContent = '0';
+                updateCount();
+            });
+        
+            counter.addEventListener('mouseleave', () => {
+                counter.textContent = '0';
+            });
+        });
+        </script>
+        
+<!-- FIN Section Compteurs avec bannière -->
+
+
+
+    <!-- troisieme biocontrole -->
+<div class="container">
+    <div class="row"><h1 class="mb-5" style="font-family: 'Audiowide', sans-serif;"> MICRO-ORGANISME</h1></div>
+    <div class="row">
+        <div class="col-5" >
+            <H3 class="mb-3" style="font-family: 'Audiowide', sans-serif; text-decoration:underline; ">
+                C'EST QUOI ? :
+            </H3>
+            <p class="text-justify mb-5" style="font-family: 'Poppins', sans-serif; font-size: 20px; color: white; text-align: justify;">
+                Les microorganismes, tels que les bactéries, champignons, levures ou virus bénéfiques, jouent un rôle essentiel dans le biocontrôle. 
+                Ils agissent de différentes manières, par exemple en parasitant directement les pathogènes, en produisant des substances inhibitrices ou en renforçant les défenses naturelles des plantes. <br>
+                Certaines bactéries, comme Bacillus subtilis, protègent les racines contre les maladies, tandis que des champignons comme Trichoderma dégradent les parois des pathogènes. 
+                Ces solutions naturelles permettent de limiter l’utilisation de pesticides chimiques, tout en favorisant une agriculture plus respectueuse de l’environnement.
+            </p>
+                <H3 class="mb-3" style="font-family: 'Audiowide', sans-serif; text-decoration:underline; ">
+                    EXPLICATION GRAPHIQUE :
+                </H3>
+                <p class="text-justify mb-5" style="font-family: 'Poppins', sans-serif; font-size: 20px; color: white; text-align: justify;">
+                    Le graphique met en avant les méthodes de biocontrôle par micro-organismes. Les fongicides prédominent avec 65 % d’utilisation, suivis des insecticides, tandis que les nématicides représentent une part minime. Cela souligne l'importance des fongicides dans ce domaine.
+                 </p>
+
+        </div>
+        <div class="col"></div>
+        <div class="col-6 d-flex justify-content-center ">
+            <canvas id="myPieCharttt" width="400" height="400"></canvas>
+    <script>
+        // Fonction pour charger le fichier CSV
+        async function loadCSV(url) {
+            const response = await fetch(url);
+            const data = await response.text();
+            return data;
+        }
+
+        // Fonction pour créer le graphique
+        async function createPieCharttt() {
+            const csvData = await loadCSV('micro.csv');
+            const lines = csvData.split('\n');
+
+            // Extraire les labels et les valeurs
+            const labels = [];
+            const values = [];
+
+            for (let i = 1; i < lines.length; i++) { // Commencer à 1 pour ignorer l'en-tête
+                const [type, pourcentage] = lines[i].split(',');
+                if (type && pourcentage) { // Vérifier que les valeurs existent
+                    labels.push(type.trim());
+                    values.push(parseInt(pourcentage.trim())); // Convertir en nombre
+                }
+            }
+
+            const ctx = document.getElementById('myPieCharttt').getContext('2d');
+            const myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Pourcentage des Traitements de Biocontrôle',
+                        data: values,
+                        backgroundColor: [
+                            'rgba(62, 137, 20, 1)',
+                            'rgba(150, 224, 114, 1)',     
+                            'rgba(232, 252, 207, 1)'
+                        ],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return `${tooltipItem.label}: ${tooltipItem.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Appeler la fonction pour créer le graphique
+        createPieCharttt();
+    </script>
+</body>
+        </div>
+    </div>
+</div>
+    <!-- FIN troisieme biocontrole -->
+     <!-- Section Compteurs avec bannière -->
+    <div class="container-fluid">
+        <div class="container-fluid my-5 p-0">
+            <div class="position-relative">
+                <!-- Image  -->
+                <img src="IMAGE/Retro style graphic design phone wallpaper_background.jpg" class="my-5 w-100" alt="Background banner" style="height: 200px; object-fit: cover;">
+                
+                <!-- Contenu des compteurs -->
+                <div class="position-absolute top-50 start-50 translate-middle w-100" style="font-family: 'Audiowide', sans-serif;">
+                    <div class="container">
+                        <div class="row text-center text-white">
+                            <!-- Compteur 1 -->
+                            <div class="col-md-6">
+                                <h2 class="display-4 fw-bold counter-value" data-target="65 %">0%</h2>
+                                <p class="text-uppercase fw-bold" >Fongicides</p>
+                            </div>
+                            <!-- Compteur 2 -->
+                            <div class="col-md-6">
+                                <h2 class="display-4 fw-bold counter-value" data-target="33">0%</h2>
+                                <p class="text-uppercase fw-bold" >Insecticides</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.counter-value').forEach(counter => {
+            counter.addEventListener('mouseenter', () => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                let count = 0;
+                const duration = 1000; // 1 seconde pour l'animation
+                const increment = target / (duration / 16); // 60 FPS
+        
+                function updateCount() {
+                    if (count < target) {
+                        count += increment;
+                        counter.textContent = Math.min(Math.round(count), target);
+                        requestAnimationFrame(updateCount);
+                    }
+                }
+        
+                counter.textContent = '0';
+                updateCount();
+            });
+        
+            counter.addEventListener('mouseleave', () => {
+                counter.textContent = '0';
+            });
+        });
+        </script>
+        
+<!-- FIN Section Compteurs avec bannière -->
+
+<div class="container-fluid px-0 mt-0">
+ <a href="betterave.html"><img class="w-75 h-auto" src="IMAGE/Group 25.png" alt=""></a>
+</div>
+
+
+
+<div class="container-fluid mt-5">
+    <h1 class="display-2 fw-bold mb-3" style="font-family: 'Audiowide', sans-serif;">F.A.Q</h1>
+    
+    <div class="accordion accordion-dark" id="faqAccordion">
+        <!-- Question 1 -->
+        <div class="accordion-item bg-dark text-white border-light mb-3">
+            <h2 class="accordion-header">
+                <button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                    Comment puis-je créer un compte ?
+                </button>
+            </h2>
+            <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body bg-dark">
+                    Pour créer un compte, cliquez sur le bouton "S'inscrire" en haut à droite de la page et suivez les instructions.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="accordion-item bg-dark text-white border-light mb-3">
+            <h2 class="accordion-header">
+                <button class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                    Comment réinitialiser mon mot de passe ?
+                </button>
+            </h2>
+            <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body bg-dark">
+                    Vous pouvez réinitialiser votre mot de passe en cliquant sur "Mot de passe oublié" sur la page de connexion.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="accordion-item bg-dark text-white border-light mb-3">
+            <h2 class="accordion-header">
+                <button class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                    Comment contacter le support ?
+                </button>
+            </h2>
+            <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body bg-dark">
+                    Notre équipe support est disponible 24/7 via email à support@example.com ou par téléphone au 01 23 45 67 89.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-black py-5">
+    <h1 class="display-1 text-white mb-5" style="font-family: 'Audiowide', sans-serif;">Contact</h1>
+    
+    <div class="row g-4">
+       
+        <div class="col-lg-6">
+            <div class="position-relative">
+              
+                <div class="position-absolute bg-white" style="width: calc(100% - 20px); height: calc(100% - 20px); top: 20px; left: 20px;"></div>
+               
+                <div class="position-relative border border-2 border-white p-2 bg-dark">
+                  
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5239.8572422776515!2d2.875365175967578!3d48.9548449939145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e8a11cceb9ee4f%3A0x143615de96b042c5!2sIUT%20De%20Meaux%20Universit%C3%A9%20Gustave%20Eiffel!5e0!3m2!1sfr!2sfr!4v1735311715716!5m2!1sfr!2sfr" class="w-100 position-relative" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="col-lg-6">
+            <h2 class="text-white mb-4" style="font-family: 'Audiowide', sans-serif;">Une requête ?</h2>
+            <form id="contactForm" class="needs-validation" novalidate="">
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label text-white mb-2">Mail</label>
+                    <input type="email" class="form-control bg-transparent text-white border-white" id="email" required="">
+                </div>
+                
+                <!-- nom -->
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label text-white mb-2">Prénom</label>
+                        <input type="text" class="form-control bg-transparent text-white border-white" required="">
+                    </div>
+                    <div class="col">
+                        <label class="form-label text-white mb-2">Nom</label>
+                        <input type="text" class="form-control bg-transparent text-white border-white" required="">
+                    </div>
+                </div>
+                
+                <!-- Message -->
+                <div class="mb-3">
+                    <label class="form-label text-white mb-2">Message</label>
+                    <textarea class="form-control bg-transparent text-white border-white" rows="6" required=""></textarea>
+                </div>
+                
+                
+                <div class="position-relative">
+                    <button type="submit" class="btn btn-outline-light px-4">
+                        Envoyer
+                        <i class="bi bi-check-circle-fill text-success ms-2 d-none" id="successIcon"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+  
+    const successIcon = document.getElementById('successIcon');
+    successIcon.classList.remove('d-none');
+    
+   
+    setTimeout(() => {
+        successIcon.classList.add('d-none');
+        this.reset();
+    }, 3000);
+});
+</script>
+
+
+<footer class="bg-black text-white py-4 border-top border-white">
+    <div class="container">
+        <div class="row">
+         
+            <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                    <li><a href="index.html" class="text-white text-decoration-none">Acceuil</a></li>
+                    <li><a href="filierelegume.html" class="text-white text-decoration-none">Legume</a></li>
+                    <li><a href="arbroculture.html" class="text-white text-decoration-none">Arbroculture</a></li>
+                    <li><a href="horticulture.html" class="text-white text-decoration-none">Horticulture</a></li>
+                </ul>
+            </div>
+            
+           
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="mb-2">Assia Mahdjoub</p>
+                        <p class="mb-2">Hugo Vitor Goncalves Fernandes</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="mb-2">Ibtissam Chtioui</p>
+                        <p class="mb-2">Ruben Pereira</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+
+</body></html>

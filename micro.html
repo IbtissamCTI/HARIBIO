@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphique Circulaire des Traitements de Biocontrôle</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="myPieCharttt" width="400" height="400"></canvas>
+    <script>
+        // Fonction pour charger le fichier CSV
+        async function loadCSV(url) {
+            const response = await fetch(url);
+            const data = await response.text();
+            return data;
+        }
+
+        // Fonction pour créer le graphique
+        async function createPieCharttt() {
+            const csvData = await loadCSV('micro.csv');
+            const lines = csvData.split('\n');
+
+            // Extraire les labels et les valeurs
+            const labels = [];
+            const values = [];
+
+            for (let i = 1; i < lines.length; i++) { // Commencer à 1 pour ignorer l'en-tête
+                const [type, pourcentage] = lines[i].split(',');
+                if (type && pourcentage) { // Vérifier que les valeurs existent
+                    labels.push(type.trim());
+                    values.push(parseInt(pourcentage.trim())); // Convertir en nombre
+                }
+            }
+
+            const ctx = document.getElementById('myPieCharttt').getContext('2d');
+            const myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Pourcentage des Traitements de Biocontrôle',
+                        data: values,
+                        backgroundColor: [
+                            'rgba(128, 128, 128, 0.6)', // Gris
+                            'rgba(255, 0, 0, 0.6)',     // Rouge
+                            'rgba(0, 255, 0, 0.6)'      // Vert
+                        ],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return `${tooltipItem.label}: ${tooltipItem.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Appeler la fonction pour créer le graphique
+        createPieCharttt();
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+* {
+  font-family: "Audiowide", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(255, 255, 255);
+}
+
+body {
+    background: linear-gradient(180deg, #166B1C, #448448, #0B0000 ,#3D6140);
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 2;
+  padding: 0;
+  display: flex;
+  justify-content: end;
+}
+
+li a {
+  padding: 20px; 
+  color: white;
+  text-decoration: none; 
+  transition: transform 0.3s, color 0.3s; 
+}
+
+li a:hover {
+  transform: translateY(-5px); 
+  color: #f0f0f0; 
+}
+
+
+li a.active {
+  text-decoration: underline;
+  text-underline-offset: 5px; 
+}
+
+
+h1 {
+  font-size: 150px;
+  
+}
+
+p {
+  text-align: justify;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#ENSA {
+  font-family: "Poppins", serif;
+  font-weight: 300;
+  font-style: normal;
+  color: white;
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+#bette {
+  width: 525px;
+  height: auto;
+  object-fit: contain;
+}
+
+.row {
+  align-items: center;
+}
+
+.col-5:last-child {
+  display: flex;
+  justify-content: center;
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%; 
+  position: relative;
+}
+
+
+.marquee {
+  display: inline-block;
+  animation: scroll 20s linear infinite;
+}
+
+
+@keyframes scroll {
+  from {
+    transform: translateX(0); 
+  }
+  to {
+    transform: translateX(-100%); 
+  }
+}
+
+.verti{
+
+ writing-mode: vertical-rl;
+/* letter-spacing: 2px; */
+align-self: flex-start;
+
+
+}
+
+/* Colonne déroulant */
+.col-deroul {
+  flex: 0 0 100px; /* Largeur fixe de la colonne déroulant */
+  max-width: 100px;
+  padding: 0; /* Réduction des marges internes */
+}
+
+/* Colonne betteraves */
+
+
+/* Contenu déroulant */
+.deroul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacement entre chaque icône */
+}
+
+.deroul a img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain; /* Garder les proportions des images */
+  transition: transform 0.3s; /* Effet de transition sur hover */
+}
+
+.deroul a img:hover {
+  transform: scale(1.1); /* Agrandissement des icônes au survol */
+}
+
+/* Contenu betteraves */
+.betterave a img {
+  width: 60px; /* Taille de l'icône de la betterave */
+  height: 60px;
+  object-fit: contain; /* Garder les proportions des images */
+  transition: transform 0.3s;
+}
+
+.betterave a img:hover {
+  transform: scale(1.1); /* Effet au survol */
+}
